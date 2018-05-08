@@ -11,6 +11,7 @@
 ### 2018.5
 
 - [前端安全](https://github.com/MLuminary/Blog/issues/5)
+- [跨域问题总结](https://github.com/MLuminary/Blog/issues/7)
 
 ### 2017.9
 
@@ -20,6 +21,7 @@
 
 - [你好！BFC](https://github.com/MLuminary/Blog/issues/3)
 - [图解作用域及闭包](https://github.com/MLuminary/Blog/issues/4)
+- [js函数基础](https://github.com/MLuminary/Blog/issues/6)
 
 ### 2017.7
 
