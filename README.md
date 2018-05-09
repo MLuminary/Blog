@@ -26,6 +26,7 @@
 - [你好！BFC](https://github.com/MLuminary/Blog/issues/3)
 - [图解作用域及闭包](https://github.com/MLuminary/Blog/issues/4)
 - [js函数基础](https://github.com/MLuminary/Blog/issues/6)
+- [对象类型的辨别](https://github.com/MLuminary/Blog/issues/10)
 
 ### 2017.7
 
