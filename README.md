@@ -13,6 +13,10 @@
 - [前端安全](https://github.com/MLuminary/Blog/issues/5)
 - [跨域问题总结](https://github.com/MLuminary/Blog/issues/7)
 
+### 2017.11
+
+- [prop和attr的一些理解](https://github.com/MLuminary/Blog/issues/8)
+
 ### 2017.9
 
 - [简易扫雷小游戏](https://github.com/MLuminary/Blog/issues/2)
