@@ -11,6 +11,7 @@
 ### 2018.7
 
 - [让服务器带点绿](https://github.com/MLuminary/Blog/issues/14)
+- [记一次Oneinstack配置服务器](https://github.com/MLuminary/Blog/issues/15)
 
 ### 2018.5
 
