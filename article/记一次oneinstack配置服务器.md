@@ -2,7 +2,7 @@
 
 ## 引言
 
-因为自己是大学生，所以一直都是用的腾讯云学生机，但是前几天腾讯突然告诉我腾讯云学生认证到期了，可能是当时填错了，没办法我就又申请了学生认证😂，谁让我还是学生呢，但是以前老的学生优惠的学生机就不能再按照学生优惠的方式续费了，所以我又买了一个新的服务器。买完服务器准备手动开始各种配置的时候便发现了一个神器，也就是接下来要介绍给大家的。就是 [oneinstack](https://oneinstack.com/) ,可以傻瓜式「一键」安装
+因为自己是大学生，所以一直都是用的腾讯云学生机，但是前几天腾讯突然告诉我腾讯云学生认证到期了，可能是当时填错了，没办法我就又申请了学生认证😂，谁让我还是学生呢，但是以前老的学生优惠的学生机就不能再按照学生优惠的方式续费了，所以我又买了一个新的服务器。买完服务器准备手动开始各种配置的时候便发现了一个神器，也就是接下来要介绍给大家的。就是 [oneinstack](https://oneinstack.com/) ,可以傻瓜式「一键」安装，想看碰到的 bug 及一些解决方案可以直接跳过配置服务器部分。<a href="#遇到的问题">「jump」</a>
 
 ## 配置服务器环境
 
@@ -208,6 +208,40 @@ service memcached {start|stop|status|restart|reload}
 
 运行`./vhost.sh` 就会跳到配置虚拟环境界面，oneinstack 采用 Let's Encrypt https 证书，免费使用为 90 天，到期后 oneinstack 会自动帮你续费，配置完毕后在默认文件夹里添加项目就可以输入网址以 https 的方式访问
 
-## 有关 https 碰到的问题
+## 遇到的问题
 
-我自己创建了一个二级域名 api.haoqinzz.cn 来作为我一些 api 接口的提供网址，然后想用 oneinstack 为其上 https，但是一直失败，我就索性直接创建 http 试一下，结果成功了，然后我讲我的接口服务迁移至此用 pm2 启动后网址输入 test
+### 无法访问带端口域名
+
+我自己创建了一个二级域名 api.×××× 来作为我一些 api 接口的提供网址，然后想用 oneinstack 为其上https，向服务器中上传 node 文件用 pm2 跑起来后，本来在本地 localhost:3000 可以访问的文件，到了服务器后无法通过 api.××××:3000 来访问，最开始想到了类似阿里云安全组的问题，然后我去后台看了下我的服务器的安全组，并没有禁用 3000 端口。后来脑子里自己冒出来了一个想法，用 nginx 反向代理，在这里我就不具体给出反向代理的代码了，格式很简单，就是访问 api.××××/getApi 相当于访问 api.××××:3000/getApi ,然后竟然就成功访问到了 :zap:
+
+### 引用 api 碰到的跨域问题
+
+主域名下的项目引用 api.×××× 下的 api 是要跨域的，谷歌搜索到的解决方案基本是如下代码
+
+```js
+app.all('*', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Content-Type,Content-Length, Authorization, Accept,X-Requested-With");
+    res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
+    res.header("X-Powered-By",' 3.2.1')
+    if(req.method=="OPTIONS") res.send(200);/*让options请求快速返回*/
+    else  next();
+});
+```
+
+但是并没有解决我的跨域问题，我是在 nginx 反向代理时加入如下代码实现的
+
+```conf
+location / {  
+    add_header Access-Control-Allow-Origin *;
+	...
+} 
+```
+
+### https 引用 http 下的接口报错
+
+我的 api.×××× 域名在开始的时候上 https 并没有成功，我就使用的是 http 协议，但是解决了跨域问题后又报错，报错的内容大致就是 https 下无法引用 http 中的接口，最后我其实换了一个域名又上了 https ... :joy_cat:
+
+## 最后
+
+最后基本项目都已部署到了服务器上，访问项目也有耀眼的小绿标，还是 hin 开心的
