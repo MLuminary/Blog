@@ -210,4 +210,4 @@ service memcached {start|stop|status|restart|reload}
 
 ## 有关 https 碰到的问题
 
-我自己创建了一个二级域名 api.haoqinzz.cn 来作为我一些 api 接口的提供网址，然后想用 oneinstack 为其上 https，但是一直失败，我就索性直接创建 http 试一下，结果成功了，然后我讲我的接口服务迁移至此用 pm2 启动后网址输入 
+我自己创建了一个二级域名 api.haoqinzz.cn 来作为我一些 api 接口的提供网址，然后想用 oneinstack 为其上 https，但是一直失败，我就索性直接创建 http 试一下，结果成功了，然后我讲我的接口服务迁移至此用 pm2 启动后网址输入 test
