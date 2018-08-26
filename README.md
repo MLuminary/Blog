@@ -8,6 +8,10 @@
 
 ## TimeLine
 
+### 2018.8
+
+- [获取百度搜索提示结果](https://github.com/MLuminary/Blog/issues/16)
+
 ### 2018.7
 
 - [让服务器带点绿](https://github.com/MLuminary/Blog/issues/14)
