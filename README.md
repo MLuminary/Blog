@@ -8,6 +8,10 @@
 
 ## TimeLine
 
+### 2018.9
+
+- [根据 url 获取图标及 title](https://github.com/MLuminary/Blog/issues/17)
+
 ### 2018.8
 
 - [获取百度搜索提示结果](https://github.com/MLuminary/Blog/issues/16)
