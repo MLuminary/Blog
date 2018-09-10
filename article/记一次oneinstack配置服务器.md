@@ -202,6 +202,47 @@ Memcached:
 service memcached {start|stop|status|restart|reload}
 ```
 
+## 启用 mysql 服务
+
+oneinstack 默认仅允许主机本机链接数据库，需要远程连接数据库的话，需要打开对应端口
+
+### 打开 3306 端口
+
+CentOS 系统
+
+```shell
+iptables -I INPUT 4 -p tcp -m state --state NEW -m tcp --dport 3306 -j ACCEPT # 允许访问 3306
+service iptables save #保存 iptables 规则
+iptables -nvl # 查看 iptables 规则
+```
+
+Ubuntu/Debian 
+
+```shell
+iptables -I INPUT 4 -p tcp -m state --state NEW -m tcp --dport 3306 -j ACCEPT # 允许访问 3306
+iptables-save > /etc/iptables.up.rules #保存 iptables 规则
+```
+
+### 数据库授权
+
+#### MySQL8.0版本
+
+```shell
+# mysql -uroot -p
+ MySQL [(none)]> create user db_user@'%' identified by 'db_pass'; #创建用户
+ MySQL [(none)]> grant all privileges on db_name.* to db_user@'%' with grant option; #授权
+ MySQL [(none)]> exit; #退出数据库控制台，特别注意有分号
+```
+
+#### 其余MySQL版本
+
+```shell
+# mysql -uroot -p
+ MySQL [(none)]> grant all privileges on db_name.* to db_user@'%' identified by 'db_pass'; #授权语句，特别注意有分号
+ MySQL [(none)]> flush privileges;
+ MySQL [(none)]> exit; #退出数据库控制台，特别注意有分号
+```
+
 ## 服务器https
 
 以前的服务器 https 都是自己上的，使用 oneinstack 可以一键让自己的服务器带点绿 :green_apple: 
@@ -213,6 +254,8 @@ service memcached {start|stop|status|restart|reload}
 ### 无法访问带端口域名
 
 我自己创建了一个二级域名 api.×××× 来作为我一些 api 接口的提供网址，然后想用 oneinstack 为其上https，向服务器中上传 node 文件用 pm2 跑起来后，本来在本地 localhost:3000 可以访问的文件，到了服务器后无法通过 api.××××:3000 来访问，最开始想到了类似阿里云安全组的问题，然后我去后台看了下我的服务器的安全组，并没有禁用 3000 端口。后来脑子里自己冒出来了一个想法，用 nginx 反向代理，在这里我就不具体给出反向代理的代码了，格式很简单，就是访问 api.××××/getApi 相当于访问 api.××××:3000/getApi ,然后竟然就成功访问到了 :zap:
+
+2018/9/10: oneinstack 默认端口都是不开放的，因此我感觉是未将 3000 端口开放的原因
 
 ### 引用 api 碰到的跨域问题
 
