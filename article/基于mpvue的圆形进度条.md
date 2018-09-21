@@ -12,6 +12,8 @@
 
 自己本身是一个小程序小白，前几天刚开始学习。碰到一个需求是要实现多个圆形带缺口的进度条，在网上没有找到相关插件后决定自己编写一个，如果能帮到需要的人那真是太好了, 下面会介绍一下自己的实现过程，如果只关心如何用的话可以传送到下面的页面
 
+[mini-circleprogress 源码](https://github.com/MLuminary/subentry/tree/master/mini-circleProgress)
+
 ### 过程
 
 一开始的思路是用 svg， 自己编写完毕后，发现小程序不支持直接引入 svg， 因此最终实现是使用的小程序自带的 canvas
