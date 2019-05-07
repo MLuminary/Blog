@@ -14,6 +14,8 @@
 
 ### 2018.10
 
+- [考验多方面技能的前端面试题（一）](https://github.com/MLuminary/Blog/issues/19)
+
 ### 2018.9
 
 - [基于 mpvue 的圆形进度条组件](https://github.com/MLuminary/Blog/issues/18)
