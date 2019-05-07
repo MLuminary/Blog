@@ -8,6 +8,9 @@
 
 ## TimeLine
 
+### 2019.5
+- [<Element /> 与 renderElement 杂交](https://github.com/MLuminary/Blog/issues/19)
+
 ### 2018.9
 
 - [基于 mpvue 的圆形进度条组件](https://github.com/MLuminary/Blog/issues/18)
