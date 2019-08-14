@@ -8,6 +8,10 @@
 
 ## TimeLine
 
+### 2019.8
+
+- [ 关于 JavaScript 的设计模式 ](https://haoqinn.gitbook.io/handbook-of-design-pattern/)
+
 ### 2019.5
 
 - [ `<Element />` 与 renderElement 杂交](https://github.com/MLuminary/Blog/issues/20)
@@ -28,7 +32,7 @@
 ### 2018.7
 
 - [让服务器带点绿](https://github.com/MLuminary/Blog/issues/14)
-- [记一次Oneinstack配置服务器](https://github.com/MLuminary/Blog/issues/15)
+- [记一次 Oneinstack 配置服务器](https://github.com/MLuminary/Blog/issues/15)
 
 ### 2018.5
 
@@ -40,7 +44,7 @@
 
 ### 2017.11
 
-- [prop和attr的一些理解](https://github.com/MLuminary/Blog/issues/8)
+- [prop 和 attr 的一些理解](https://github.com/MLuminary/Blog/issues/8)
 
 ### 2017.9
 
@@ -50,14 +54,10 @@
 
 - [你好！BFC](https://github.com/MLuminary/Blog/issues/3)
 - [图解作用域及闭包](https://github.com/MLuminary/Blog/issues/4)
-- [js函数基础](https://github.com/MLuminary/Blog/issues/6)
+- [js 函数基础](https://github.com/MLuminary/Blog/issues/6)
 - [对象类型的辨别](https://github.com/MLuminary/Blog/issues/10)
 
 ### 2017.7
 
 - [谈谈值传递](https://github.com/MLuminary/Blog/issues/1)
-- [css水平居中](https://github.com/MLuminary/Blog/issues/9)
-
-
-
-
+- [css 水平居中](https://github.com/MLuminary/Blog/issues/9)
