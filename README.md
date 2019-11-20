@@ -18,7 +18,7 @@
 
 ### 2019.5
 
-- [ `<Element />` 与 renderElement 杂交](https://github.com/MLuminary/Blog/issues/20)
+- [ `<Element />` 与 renderElement](https://github.com/MLuminary/Blog/issues/20)
 
 ### 2018.10
 
